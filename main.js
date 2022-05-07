@@ -4,7 +4,7 @@ const plusButton = document.querySelector('.plus');
 function plusNode() {
     const text = document.querySelector('.text');
     const input = text.value;
-    if (input == false) return;
+    if (input == false) return Promise.reject(new Error('값을 입력하지 않았다.'));
     const newLine = document.createElement('li');
     newLine.setAttribute('class', 'line');
     newLine.innerHTML = covertHTML(input);
@@ -20,6 +20,7 @@ plusButton.addEventListener('click', () => {
             obj[0].remove();
         })
     })
+    .catch(console.log);
 })
 
 function covertHTML(input) {
