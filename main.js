@@ -10,14 +10,14 @@ function plusNode() {
     newLine.innerHTML = covertHTML(input);
     list.append(newLine);
     text.value = '';
-    return Promise.resolve([newLine, newLine.querySelector('.trash')]);
+    return Promise.resolve({newLine: newLine, trashBtn: newLine.querySelector('.trash')});
 }
 
 plusButton.addEventListener('click', () => {
     plusNode()
-    .then(obj => {
-        obj[1].addEventListener('click', () => {
-            obj[0].remove();
+    .then(resolve => {
+        resolve.trashBtn.addEventListener('click', () => {
+            resolve.newLine.remove();
         })
     })
     .catch(console.log);
