@@ -1,0 +1,72 @@
+body {
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+.phone {
+    background-color: pink;
+    width: 40%;
+    height: 700px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.list {
+    text-align: left;
+    background-color: lightgray;
+    width: 100%;
+    height: 580px;
+    margin-top: 20px;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trash:hover {
+    color: red;
+}
+
+.trash:active {
+    transform: scale(1.1);
+}
+.plus {
+    background-color: gray;
+    color: white;
+    font-size: 20px;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 100px;
+    margin-top: 8px;
+}
+
+.plus:hover {
+    transform: scale(1.1);
+}
+
+.text {
+    display: block;
+    font-size: 20px;
+    width: 98.8%;
+    height: 25px;
+    border: none;
+}
+
+.text:focus {
+    outline: none;
+}
+
