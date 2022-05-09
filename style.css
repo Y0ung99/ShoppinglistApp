@@ -1,9 +1,7 @@
 body {
-    background-color: gray;
+    background-color: #ced3df;
     display: flex;
     justify-content: center;
-    
-    
 }
 
 button {
@@ -12,38 +10,55 @@ button {
     border: none;
 }
 
-li {
+ul {
+    margin: 0;
+    padding: 0;
     list-style: none;
+    
 }
 
 .phone {
-    background-color: pink;
-    width: 40%;
-    height: 700px;
-    border-radius: 30px;
+    width: 50%;
     text-align: center;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+    box-shadow: 5px 5px 15px 5px #000000;
+    border-radius: 20px;
+
 }
 
 .list {
     text-align: left;
-    background-color: lightgray;
+    background-color: #f1f0f7;
     width: 100%;
-    height: 580px;
-    margin-top: 10px;
-    overflow-y: scroll;
+    height: 450px;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
-.phone > span {
+.header {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,136,136,1) 0%, rgba(255,177,254,1) 100%, rgba(157,180,254,1) 100%, rgba(0,212,255,1) 100%);
+    width: 100%;
+    height: 40px;
     font-size: 22px;
+    border-radius: 20px 20px 0 0;
+    color : white;
+    
+
+}
+
+.footer {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,136,136,1) 0%, rgba(255,177,254,1) 100%, rgba(157,180,254,1) 100%, rgba(0,212,255,1) 100%);
+    height: 85px;
+    border-radius: 0 0 20px 20px;
 
 }
 
 .line {
     display: flex;
     justify-content: space-between;
-    margin-left: 10px;
-    margin-top: 4px;
+    padding-left: 8px;
 }
 
 .trash:hover {
@@ -54,7 +69,7 @@ li {
     transform: scale(1.1);
 }
 .plus {
-    background-color: gray;
+    background-color: black;
     color: white;
     font-size: 20px;
     padding: 8px 8px;
@@ -70,9 +85,10 @@ li {
 .text {
     display: block;
     font-size: 20px;
-    width: 98.8%;
+    width: 100%;
     height: 25px;
     border: none;
+    padding: 0;
 }
 
 .text:focus {

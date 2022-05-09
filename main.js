@@ -9,6 +9,7 @@ function plusNode() {
     newLine.setAttribute('class', 'line');
     newLine.innerHTML = covertHTML(input);
     list.append(newLine);
+    newLine.scrollIntoView({block: 'end'});
     text.value = '';
     return Promise.resolve({newLine: newLine, trashBtn: newLine.querySelector('.trash')});
 }
