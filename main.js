@@ -1,34 +1,54 @@
-const list = document.querySelector('.list');
+const ul = document.querySelector('.list');
 const plusButton = document.querySelector('.plus');
+const text = document.querySelector('.text');
 
-function plusNode() {
-    const text = document.querySelector('.text');
-    const input = text.value;
-    if (input == false) return Promise.reject(new Error('값을 입력하지 않았다.'));
-    const newLine = document.createElement('li');
-    newLine.setAttribute('class', 'line');
-    newLine.innerHTML = covertHTML(input);
-    list.append(newLine);
-    newLine.scrollIntoView({block: 'end'});
+function addNode() {
+    return new Promise((resolve, reject) => {
+        const input = text.value;
+        if (!input) { reject(new Error('값을 입력하지 않았다.')); }
+        else {
+            const newNode = createNode(input);
+            ul.append(newNode);
+            newNode.scrollIntoView({block: 'end'});
+            resetInput(text);
+            resolve({willDeleteNode: newNode, trashBtn: newNode.querySelector('.trash')});
+        }
+    });
+}
+
+function createNode(input) {
+    const createdNode = document.createElement('li');
+    createdNode.setAttribute('class', 'line');
+    createdNode.innerHTML = convertHTML(input);
+    return createdNode;
+}
+
+function convertHTML(input) {
+    return `
+    <div class="item">
+        <span>${input}</span>
+        <button class="trash">
+                <i class="fa-solid fa-trash-can"></i>
+        </button>
+    </div>
+    <div class="divider"></div>
+    `;
+}
+
+function resetInput(text) {
     text.value = '';
-    return Promise.resolve({newLine: newLine, trashBtn: newLine.querySelector('.trash')});
+    text.focus();
 }
 
 plusButton.addEventListener('click', () => {
-    plusNode()
+    addNode()
     .then(resolve => {
         resolve.trashBtn.addEventListener('click', () => {
-            resolve.newLine.remove();
+            resolve.willDeleteNode.remove();
+            text.focus()
         })
     })
-    .catch(console.log);
+    .catch(console.log)
+    .finally(text.focus());
 })
 
-function covertHTML(input) {
-    return `
-    <span>${input}</span>
-    <button class="trash">
-            <i class="fa-solid fa-trash-can"></i>
-    </button>
-    `
-}

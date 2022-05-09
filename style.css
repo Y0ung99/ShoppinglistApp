@@ -31,8 +31,7 @@ ul {
     background-color: #f1f0f7;
     width: 100%;
     height: 450px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .header {
@@ -56,9 +55,14 @@ ul {
 }
 
 .line {
+    padding-top: 4px;
+}
+
+.item {
     display: flex;
     justify-content: space-between;
-    padding-left: 8px;
+    padding-left: 16px;
+    padding-right: 8px;
 }
 
 .trash:hover {
@@ -95,3 +99,9 @@ ul {
     outline: none;
 }
 
+.divider {
+    background-color: lightgray;
+    width: 95%;
+    height: 1px;
+    margin: 4px auto 8px auto;
+}
